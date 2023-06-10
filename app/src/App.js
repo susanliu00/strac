@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 const File = ({ backendData }) => {
   return (
     <div className="file">
-      <h2>Name: {backendData[0]}</h2>
+      <h2>Id: {backendData[0]}</h2>
       <div>
         <h3>Users</h3>
         {backendData[2].map((u) => {
@@ -20,7 +20,7 @@ const File = ({ backendData }) => {
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ fileId }),
+                body: JSON.stringify({ backendData }),
               })
                 .then((response) => {
                   if (response.ok) {
