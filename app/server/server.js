@@ -108,3 +108,18 @@ app.post("/notification", (req, res) => {
   console.log("here");
   res.sendStatus(200);
 });
+
+app.post("/download", async (req, res) => {
+  const { fileId } = req.body;
+  try {
+    const { data: fileMetadata } = await drive.files.get({
+      fileId,
+      fields: "webContentLink",
+    });
+
+    res.json({ url: fileMetadata.webContentLink });
+  } catch (error) {
+    console.error("Error downloading file:", error);
+    res.status(500).send();
+  }
+});

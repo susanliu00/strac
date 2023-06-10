@@ -13,7 +13,32 @@ const File = ({ backendData }) => {
           return <div>u.displayName</div>;
         })}
         <div className="download">
-          <button onClick={() => {}}>Download</button>
+          <button
+            onClick={() => {
+              fetch("/download", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ fileId }),
+              })
+                .then((response) => {
+                  if (response.ok) {
+                    return response.json();
+                  } else {
+                    throw new Error("Error initiating file download");
+                  }
+                })
+                .then((data) => {
+                  window.open(data.url);
+                })
+                .catch((error) => {
+                  console.error(error);
+                });
+            }}
+          >
+            Download
+          </button>
         </div>
       </div>
     </div>
