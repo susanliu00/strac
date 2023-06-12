@@ -1,38 +1,18 @@
-const http = require("http");
 const { google } = require("googleapis");
 const express = require("express");
-const fs = require("fs");
+
 const { v4: uuidv4 } = require("uuid");
 const localtunnel = require("localtunnel");
-var bodyParser = require("body-parser");
-const WebSocket = require("ws");
 
 const port = 8000;
 const app = express();
+const bodyParser = require("body-parser");
+const cors = require("cors");
+
+app.use(cors());
 app.use(bodyParser.json());
-
-const server = app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
-const wss = new WebSocket.Server({ server });
-const clients = new Set();
-wss.on("connection", (ws) => {
-  clients.add(ws);
-
-  ws.on("message", (message) => {
-    console.log("Received message:", message);
-  });
-});
-
-function sendUpdateToClients(updateData) {
-  const payload = JSON.stringify(updateData);
-
-  clients.forEach((client) => {
-    if (client.readyState === WebSocket.OPEN) {
-      client.send(payload);
-    }
-  });
-}
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 const credentials = require("./credentials.json");
 
@@ -73,13 +53,57 @@ const drive = google.drive({ version: "v3", auth });
       response.data
     );
   });
-  app.get("/localtunnel", (req, res) => {
-    console.log("URL:", tunnel_url);
-    res.json({ url: tunnel_url });
-  });
 })();
 
-app.use(express.static("src"));
+async function getChange() {
+  console.log("getChanges");
+  const pageToken = await drive.changes.getStartPageToken();
+  const res = await drive.changes.list({
+    pageToken: pageToken.data.startPageToken - 1,
+    fields: "*",
+  });
+  console.log(res.data.changes);
+  return res.data.changes;
+}
+let clients = [];
+function eventsHandler(request, response, next) {
+  const headers = {
+    "Content-Type": "text/event-stream",
+    Connection: "keep-alive",
+    "Cache-Control": "no-cache",
+  };
+  response.writeHead(200, headers);
+  const clientId = Date.now();
+  const newClient = {
+    id: clientId,
+    response,
+  };
+  clients.push(newClient);
+  request.on("close", () => {
+    console.log(`${clientId} Connection closed`);
+    clients = clients.filter((client) => client.id !== clientId);
+  });
+}
+
+app.get("/events", eventsHandler);
+
+function sendEventsToAll(update) {
+  clients.forEach((client) =>
+    client.response.write(`data: ${JSON.stringify(update)}\n\n`)
+  );
+}
+
+async function notifyClients(req, res) {
+  if (req.headers["x-goog-resource-state"] != "sync") {
+    console.log("event in push notif channel");
+    changes = await getChange();
+    return sendEventsToAll(changes);
+  } else {
+    console.log("sync msg");
+  }
+}
+
+app.post("/notification", notifyClients);
 
 async function getFiles() {
   const result = {};
@@ -103,12 +127,6 @@ async function getFiles() {
   return result;
 }
 
-app.post("/notification", (req, res) => {
-  sendUpdateToClients(getFiles());
-  console.log("here");
-  res.sendStatus(200);
-});
-
 app.post("/download", async (req, res) => {
   const { fileId } = req.body;
   try {
@@ -122,4 +140,14 @@ app.post("/download", async (req, res) => {
     console.error("Error downloading file:", error);
     res.status(500).send();
   }
+});
+
+app.get("/files", async (req, res) => {
+  files = await getFiles();
+  res.send(JSON.stringify(files));
+});
+
+const server = app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+  // getChanges();
 });
