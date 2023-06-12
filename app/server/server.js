@@ -143,19 +143,23 @@ async function getFiles() {
   return result;
 }
 
-app.post("/download", async (req, res) => {
-  const { fileId } = req.body;
-  try {
-    const { data: fileMetadata } = await drive.files.get({
-      fileId,
-      fields: "webContentLink",
-    });
+app.post("/download", (req, res) => {
+  const fileId = req.body.id;
+  const name = req.body.name;
+  console.log("starting download");
+  const dest = fs.createWriteStream(`${name}`);
 
-    res.json({ url: fileMetadata.webContentLink });
-  } catch (error) {
-    console.error("Error downloading file:", error);
-    res.status(500).send();
-  }
+  drive.files.get(
+    { fileId: fileId, alt: "media" },
+    { responseType: "stream" },
+    (err, { data }) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      data.on("end", () => console.log("Downloaded")).pipe(dest);
+    }
+  );
 });
 
 app.get("/files", async (req, res) => {
