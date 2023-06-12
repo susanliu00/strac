@@ -62,9 +62,25 @@ async function getChange() {
     pageToken: pageToken.data.startPageToken - 1,
     fields: "*",
   });
-  console.log(res.data.changes);
-  return res.data.changes;
+  console.log(
+    "CHANGED FILE",
+    res.data.changes,
+    res.data.changes[0].file.trashed
+  );
+  const id = res.data.changes[0].fileId;
+  if (res.data.changes[0].file.trashed) {
+    return [id];
+  }
+
+  const name = res.data.changes[0].file.name;
+  const response = await drive.permissions.list({
+    fileId: id,
+    fields: "permissions(displayName)",
+  });
+  const permissions = response.data.permissions;
+  return [id, name, permissions];
 }
+
 let clients = [];
 function eventsHandler(request, response, next) {
   const headers = {
@@ -149,5 +165,4 @@ app.get("/files", async (req, res) => {
 
 const server = app.listen(port, () => {
   console.log(`Server running on port ${port}`);
-  // getChanges();
 });
