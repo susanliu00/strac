@@ -8,41 +8,28 @@ let url = "http://localhost:8000";
 const File = ({ backendData }) => {
   return (
     <div className="file">
-      <h2>Id: {backendData[0]}</h2>
-      <h2>Name: {backendData[1][0]}</h2>
+      {/* <h2>Id: {backendData[0]}</h2> */}
       <div>
+        <h3>Name: {backendData[1][0]}</h3>
         <h3>Users</h3>
         {backendData[1][1].map((u) => {
           return <div>{u.displayName}</div>;
         })}
-        {/* <div className="download">
+        <div className="download">
           <button
             onClick={() => {
-              fetch("/download", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ backendData }),
-              })
-                .then((response) => {
-                  if (response.ok) {
-                    return response.json();
-                  } else {
-                    throw new Error("Error initiating file download");
-                  }
+              axios
+                .post(`${url}/download`, {
+                  id: backendData[0],
+                  name: backendData[1][0],
                 })
-                .then((data) => {
-                  window.open(data.url);
-                })
-                .catch((error) => {
-                  console.error(error);
-                });
+                .then((res) => console.log(res));
+              console.log("clickede");
             }}
           >
             Download
           </button>
-        </div> */}
+        </div>
       </div>
     </div>
   );
@@ -50,22 +37,30 @@ const File = ({ backendData }) => {
 
 function App() {
   const [files, setFiles] = useState({});
+  const events = new EventSource(`${url}/events`);
+
   useEffect(() => {
     axios.get(`${url}/files`).then((data) => {
       setFiles(data.data);
       console.log("FILES", data.data);
     });
-  }, []);
+  });
 
   useEffect(() => {
-    const events = new EventSource(`${url}/events`);
-
     events.onmessage = (event) => {
       const parsedData = JSON.parse(event.data);
-      console.log(parsedData);
-      console.log("parsed");
+      console.log("PARSED", parsedData);
+      if (parsedData.length === 1) {
+        const remove = { ...files };
+        delete remove[parsedData[0]];
+        console.log("REMOVED", remove);
+        setFiles(remove);
+      } else {
+        const key = parsedData[0];
+        setFiles({ ...files, [key]: [parsedData[1], parsedData[2]] });
+      }
     };
-  }, []);
+  });
 
   return (
     <div className="App">
