@@ -6,4 +6,4 @@
 # How it works
 - The backend authenticates with Google Drive API using a service account called strac-195@strac-389317.iam.gserviceaccount.com
 - Uses LocalTunnel to set up a webhook endpoint to receive push notifications from Google Drive API whenever changes occur to files where strac-195@strac-389317.iam.gserviceaccount.com is a user
-- Whenever it receives a push notification it communicates via websocket to frontend to rerender the file and file permissions
+- Whenever it receives a push notification it notifies all clients via sse to rerender the file and file permissions
