@@ -1,5 +1,6 @@
 const { google } = require("googleapis");
 const express = require("express");
+const fs = require("fs");
 
 const { v4: uuidv4 } = require("uuid");
 const localtunnel = require("localtunnel");
@@ -143,26 +144,40 @@ async function getFiles() {
   return result;
 }
 
-app.post("/download", (req, res) => {
+app.post("/download", async (req, res) => {
+  console.log("starting download");
   const fileId = req.body.id;
   const name = req.body.name;
-  console.log("starting download");
-  const dest = fs.createWriteStream(`${name}`);
+  const dest = fs.createWriteStream(`./${name}`);
+  return drive.files
+    .get({ fileId, fileId: "media" }, { responseType: "stream" })
+    .then((res) => {
+      return new Promise((resolve, reject) => {
+        let progress = 0;
 
-  drive.files.get(
-    { fileId: fileId, alt: "media" },
-    { responseType: "stream" },
-    (err, { data }) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      data.on("end", () => console.log("Downloaded")).pipe(dest);
-    }
-  );
+        res.data
+          .on("end", () => {
+            console.log("Done downloading file.");
+          })
+          .on("error", (err) => {
+            console.error("Error downloading file.");
+            reject(err);
+          })
+          .on("data", (d) => {
+            progress += d.length;
+            if (process.stdout.isTTY) {
+              process.stdout.clearLine();
+              process.stdout.cursorTo(0);
+              process.stdout.write(`Downloaded ${progress} bytes`);
+            }
+          })
+          .pipe(dest);
+      });
+    });
 });
 
 app.get("/files", async (req, res) => {
+  console.log("getting files");
   files = await getFiles();
   res.send(JSON.stringify(files));
 });
