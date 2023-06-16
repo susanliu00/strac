@@ -58,22 +58,15 @@ const drive = google.drive({ version: "v3", auth });
 })();
 
 async function getChange() {
-  console.log("getChanges");
   const pageToken = await drive.changes.getStartPageToken();
   const res = await drive.changes.list({
     pageToken: pageToken.data.startPageToken - 1,
     fields: "*",
   });
-  console.log(
-    "CHANGED FILE",
-    res.data.changes,
-    res.data.changes[0].file.trashed
-  );
   const id = res.data.changes[0].fileId;
   if (res.data.changes[0].file.trashed) {
     return [id];
   }
-
   const name = res.data.changes[0].file.name;
   const response = await drive.permissions.list({
     fileId: id,
@@ -167,11 +160,6 @@ app.get("/files", async (req, res) => {
   console.log("getting files");
   files = await getFiles();
   res.send(JSON.stringify(files));
-});
-
-app.get("/", (req, res) => {
-  console.log("hello");
-  res.send("Hello World!");
 });
 
 const server = app.listen(port, () => {
