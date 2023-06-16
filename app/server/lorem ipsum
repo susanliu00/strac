@@ -1,0 +1,760 @@
+﻿^
+
+
+GaxiosError: [object Object]
+    at Gaxios._request (C:\Users\susan\Downloads\strac-app\node_modules\gaxios\build\src\gaxios.js:130:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async JWT.requestAsync (C:\Users\susan\Downloads\strac-app\node_modules\google-auth-library\build\src\auth\oauth2client.js:382:18)
+    at async C:\Users\susan\Downloads\strac-app\app\server\server.js:152:7 {
+  response: {
+    config: {
+      url: 'https://www.googleapis.com/drive/v3/files/12jB1TZnLgaAsI8WpKoi4TesSxSI_6_ul?alt=media',
+      method: 'GET',
+      responseType: 'stream',
+      userAgentDirectives: [
+        {
+          product: 'google-api-nodejs-client',
+          version: '6.0.4',
+          comment: 'gzip'
+        }
+      ],
+      paramsSerializer: [Function (anonymous)],
+      headers: {
+        'x-goog-api-client': 'gdcl/6.0.4 gl-node/18.14.2 auth/8.8.0',
+        'Accept-Encoding': 'gzip',
+        'User-Agent': 'google-api-nodejs-client/6.0.4 (gzip)',
+        Authorization: 'Bearer ya29.c.b0Aaekm1IzYMDPR2Jy5JSJQNdaPeWWouDTZ7HD9AdapYcv13MANAbD4O1U6MIf74xGORcxKJmP18N4rZ2VYcCKCy8wrQiRBeeBmraoXn9dHv6vO3BcJzqME4P5nxUggz8vqyChpEPE8h-MUuvHccSjNecnrK0m1EERkQyNuOg6rlptmICXjLrejlPMSOgCL1uxp6KcTOe9pGhIFlnTHfDSwmGwRdDKYrPQn6B54HA5hyt6lc_xZLTRS9ogBC1darr-FKbBgnzXJ5uTaAuL9nGXQntItG80fnD36XZCQUG30DIrZ9FgTQF6zmjPQOpfWTjUP_wW9E5qE337K6Q23Y1k4Fu-a6tB7M9-sSws4S4J4kp_g-Ubg97WJMx12ls69eJ_Z0vaMsxVRO_64YJ_nd9zY8ZMcYbl_pXM7SRlubBRBrQYZXFtUyRbl7bZpzXljou0ctUm1oqcZUhqvxax4Srvmw2WgsZV7WejO4RtqUOg3BYMrbbZzBR3Uj4mMw8BnVBX8v1Mp6_IUkk2tRjUnfbpfQhO4R1qYalkxWt1684bxU4vdc6v6VZ_3n18j0eXRBW0BoIf6yg_bi5-IaOwMdXc0rMegQFM6p8B7oJ9IUR3IVk8RsumJxgXUnfOerc-I3tmanrfJrka6wvMedosZO70SIwMM-v68lseMF_fl9Jx_ywaew8w1b6eRYtmpn22UpZZXFuQdl78cf8OtzzQQFkuxrX8zd8XSrgrafht54IQwwmv4YFO5UqUxheQVvd73jq_QnxJV3O2awMss6qZWuc6F1fxmecqO1hWJyzwRvgrmI7mzVvvM4RaiOmUzwhg4t8wUY8YUwjX62Vp2Ygkve3zkkqYxub24SXxtX3beXt4ZOVcXUc1ahn3jlZa62g84l3agdJyv4BXUkf1XR9k6QlyWax7qrjfy_UIhcSY4zUftF11UvQ9XBjWm_a4Zogb8hrt8ogzbc1ByJ-Mmvy6Wl95-IyFQrFyuuBdZkbhnbO5Sbxq5-_z-v-hsYF'
+      },
+      params: { alt: 'media' },
+      validateStatus: [Function (anonymous)],
+      retry: true,
+      retryConfig: {
+        currentRetryAttempt: 0,
+        retry: 3,
+        httpMethodsToRetry: [ 'GET', 'HEAD', 'PUT', 'OPTIONS', 'DELETE' ],
+        noResponseRetries: 2,
+        statusCodesToRetry: [ [ 100, 199 ], [ 429, 429 ], [ 500, 599 ] ]
+      }
+    },
+    data: PassThrough {
+      _readableState: ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: BufferList {
+          head: { data: [Buffer [Uint8Array]], next: null },
+          tail: { data: [Buffer [Uint8Array]], next: null },
+          length: 1
+        },
+        length: 420,
+        pipes: [],
+        flowing: null,
+        ended: true,
+        endEmitted: false,
+        reading: false,
+        constructed: true,
+        sync: false,
+        needReadable: false,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        errorEmitted: false,
+        emitClose: true,
+        autoDestroy: true,
+        destroyed: false,
+        errored: null,
+        closed: false,
+        closeEmitted: false,
+        defaultEncoding: 'utf8',
+        awaitDrainWriters: null,
+        multiAwaitDrain: false,
+        readingMore: false,
+        dataEmitted: false,
+        decoder: null,
+        encoding: null,
+        [Symbol(kPaused)]: null
+      },
+      _events: [Object: null prototype] {
+        prefinish: [Function: prefinish],
+        error: [Function (anonymous)]
+      },
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      _writableState: WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        finalCalled: true,
+        needDrain: false,
+        ending: true,
+        ended: true,
+        finished: true,
+        destroyed: false,
+        decodeStrings: true,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: false,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        afterWriteTickInfo: null,
+        buffered: [],
+        bufferedIndex: 0,
+        allBuffers: true,
+        allNoop: true,
+        pendingcb: 0,
+        constructed: true,
+        prefinished: true,
+        errorEmitted: false,
+        emitClose: true,
+        autoDestroy: true,
+        errored: null,
+        closed: false,
+        closeEmitted: false,
+        [Symbol(kOnFinished)]: []
+      },
+      allowHalfOpen: true,
+      [Symbol(kCapture)]: false,
+      [Symbol(kCallback)]: null
+    },
+    headers: {
+      'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000',
+      'cache-control': 'private, max-age=0',
+      connection: 'close',
+      'content-length': '420',
+      'content-type': 'application/json; charset=UTF-8',
+      date: 'Wed, 14 Jun 2023 00:03:06 GMT',
+      expires: 'Wed, 14 Jun 2023 00:03:06 GMT',
+      server: 'ESF',
+      vary: 'Origin, X-Origin',
+      'x-content-type-options': 'nosniff',
+      'x-frame-options': 'SAMEORIGIN',
+      'x-guploader-uploadid': 'ADPycduhkBJX83p7XanODE4KyHD4UCytfprsYjgF4vgHjb8mDghiSwkOz0orE53VKxi77SNbSgbz0p0VE-7oNQg0_Dh9fg',
+      'x-xss-protection': '0'
+    },
+    status: 403,
+    statusText: 'Forbidden',
+    request: {
+      responseURL: 'https://www.googleapis.com/drive/v3/files/12jB1TZnLgaAsI8WpKoi4TesSxSI_6_ul?alt=media'
+    }
+  },
+  config: {
+    url: 'https://www.googleapis.com/drive/v3/files/12jB1TZnLgaAsI8WpKoi4TesSxSI_6_ul?alt=media',
+    method: 'GET',
+    responseType: 'stream',
+    userAgentDirectives: [
+      {
+        product: 'google-api-nodejs-client',
+        version: '6.0.4',
+        comment: 'gzip'
+      }
+    ],
+    paramsSerializer: [Function (anonymous)],
+    headers: {
+      'x-goog-api-client': 'gdcl/6.0.4 gl-node/18.14.2 auth/8.8.0',
+      'Accept-Encoding': 'gzip',
+      'User-Agent': 'google-api-nodejs-client/6.0.4 (gzip)',
+      Authorization: 'Bearer ya29.c.b0Aaekm1IzYMDPR2Jy5JSJQNdaPeWWouDTZ7HD9AdapYcv13MANAbD4O1U6MIf74xGORcxKJmP18N4rZ2VYcCKCy8wrQiRBeeBmraoXn9dHv6vO3BcJzqME4P5nxUggz8vqyChpEPE8h-MUuvHccSjNecnrK0m1EERkQyNuOg6rlptmICXjLrejlPMSOgCL1uxp6KcTOe9pGhIFlnTHfDSwmGwRdDKYrPQn6B54HA5hyt6lc_xZLTRS9ogBC1darr-FKbBgnzXJ5uTaAuL9nGXQntItG80fnD36XZCQUG30DIrZ9FgTQF6zmjPQOpfWTjUP_wW9E5qE337K6Q23Y1k4Fu-a6tB7M9-sSws4S4J4kp_g-Ubg97WJMx12ls69eJ_Z0vaMsxVRO_64YJ_nd9zY8ZMcYbl_pXM7SRlubBRBrQYZXFtUyRbl7bZpzXljou0ctUm1oqcZUhqvxax4Srvmw2WgsZV7WejO4RtqUOg3BYMrbbZzBR3Uj4mMw8BnVBX8v1Mp6_IUkk2tRjUnfbpfQhO4R1qYalkxWt1684bxU4vdc6v6VZ_3n18j0eXRBW0BoIf6yg_bi5-IaOwMdXc0rMegQFM6p8B7oJ9IUR3IVk8RsumJxgXUnfOerc-I3tmanrfJrka6wvMedosZO70SIwMM-v68lseMF_fl9Jx_ywaew8w1b6eRYtmpn22UpZZXFuQdl78cf8OtzzQQFkuxrX8zd8XSrgrafht54IQwwmv4YFO5UqUxheQVvd73jq_QnxJV3O2awMss6qZWuc6F1fxmecqO1hWJyzwRvgrmI7mzVvvM4RaiOmUzwhg4t8wUY8YUwjX62Vp2Ygkve3zkkqYxub24SXxtX3beXt4ZOVcXUc1ahn3jlZa62g84l3agdJyv4BXUkf1XR9k6QlyWax7qrjfy_UIhcSY4zUftF11UvQ9XBjWm_a4Zogb8hrt8ogzbc1ByJ-Mmvy6Wl95-IyFQrFyuuBdZkbhnbO5Sbxq5-_z-v-hsYF'
+    },
+    params: { alt: 'media' },
+    validateStatus: [Function (anonymous)],
+    retry: true,
+    retryConfig: {
+      currentRetryAttempt: 0,
+      retry: 3,
+      httpMethodsToRetry: [ 'GET', 'HEAD', 'PUT', 'OPTIONS', 'DELETE' ],
+      noResponseRetries: 2,
+      statusCodesToRetry: [ [ 100, 199 ], [ 429, 429 ], [ 500, 599 ] ]
+    }
+  },
+  code: '403'
+}
+
+
+Node.js v18.14.2
+PS C:\Users\susan\Downloads\strac-app\app\server> node .\server.js
+Server running on port 8000
+https://hot-carrots-fix.loca.lt
+Push notification channel created successfully: {
+  kind: 'api#channel',
+  id: '8d722125-36b1-4bd4-a5ce-1949018f74ff',
+  resourceId: '00r8-0vMySaVdF3cFqFujtBjsRA',
+  resourceUri: 'https://www.googleapis.com/drive/v3/changes?alt=json&pageToken=125',
+  expiration: '1686704597000'
+}
+sync msg
+sync msg
+1686700995111 Connection closed
+1686700995111 Connection closed
+sync msg
+PS C:\Users\susan\Downloads\strac-app\app\server> node .\server.js
+Server running on port 8000
+https://petite-clocks-prove.loca.lt
+Push notification channel created successfully: {
+  kind: 'api#channel',
+  id: '44865057-384e-4c76-8943-a5b8e1868dc6',
+  resourceId: '00r8-0vMySaVdF3cFqFujtBjsRA',
+  resourceUri: 'https://www.googleapis.com/drive/v3/changes?alt=json&pageToken=125',
+  expiration: '1686706886000'
+}
+sync msg
+getting files
+starting download
+starting download
+C:\Users\susan\Downloads\strac-app\node_modules\gaxios\build\src\gaxios.js:130
+                throw new common_1.GaxiosError(`Request failed with status code ${translatedResponse.status}`, opts, translatedResponse);
+                      ^
+
+
+GaxiosError: [object Object]
+    at Gaxios._request (C:\Users\susan\Downloads\strac-app\node_modules\gaxios\build\src\gaxios.js:130:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async JWT.requestAsync (C:\Users\susan\Downloads\strac-app\node_modules\google-auth-library\build\src\auth\oauth2client.js:382:18) {
+  response: {
+    config: {
+      url: 'https://www.googleapis.com/drive/v3/files/media',
+      method: 'GET',
+      responseType: 'stream',
+      userAgentDirectives: [
+        {
+          product: 'google-api-nodejs-client',
+          version: '6.0.4',
+          comment: 'gzip'
+        }
+      ],
+      paramsSerializer: [Function (anonymous)],
+      headers: {
+        'x-goog-api-client': 'gdcl/6.0.4 gl-node/18.14.2 auth/8.8.0',
+        'Accept-Encoding': 'gzip',
+        'User-Agent': 'google-api-nodejs-client/6.0.4 (gzip)',
+        Authorization: 'Bearer ya29.c.b0Aaekm1JeKhU8m55hByG_YAZyTt633tkXbV6nyyiEX17Gu5Vzf19uvl-rXf-wAx4FhtrH7BXxhpPjlpufK0Vtb92xKSNgtk6gmvvE21rOuMUo55ylZfQKmxUrx3xpmb6y6I_oEMO53ZIu68XkuUwnDK-MZJ4nPaOW0P3H0M4HS5i9iVQ0O5VKQKqApWYsIDgrI3j0mD_qPNmHa2XTw_-Mg0pLbMa0CA0UePwUG4EFeVNrm33lcqsTsfh4__IDFL-nSIYj-r24qWCf6AB8qi21KVENkIf5o7MfKe8ZMqPFD6cFGfbSGiD4pcu_8je9j94LEbzxUfYtL337PoY_hFxqam2x-Y2f340mM231crkzpp803S_m86f3WxwcSckmgawtS08MVBahsgdtsnw7Ue5paxldv72UnJvym2W2YdWY57Iw77_InS99-S438tgSvUvcojyao0_Zk0r4X7d0BhFSxRg32oVrXVnVqJmhz3I4usy94f2B2MoIy6M3esio-dZiOrwQzqOlz7xn1ok0gVmdYe2It_d6dug8nqcV0V2WrYisJ5fMMi4FOuwpSWuo_dVst_fnVSQU9j0ikk9xx1tZv7Va77ejvJRlyl8c1M8O3YX0v_hwF41Uzmj9e16egS1Jme2FzISWOU5fs7iaobdwzRsikjc-u_fwQq7XVMgxglW3yne6bgrB0J5Xd__2W8aUcsarmgbc3Q1bY2mmzrndO3dFJ-0e2oWcgafI0cVOdhUvpOonjcsblfJ7W7BmSXVtwxuqbl-S-ynyb7mb___u-ZisRxoteBiYy-Xjbd3vlaIpcRs6444boJdy7S09kIIqfauM1-OQx8wflmeoRZB9RM-zVf8Fm-Iqulfg_k4uRoRx3wMkvMhr7jaY3b2s17huFmo9OyviFxa_lRUOBJhtIx95vx33oFrIWliFU63Uw9rB7zBXVbu6VvvylWvYgV91QYFhmoXrx71dYbF_oakdkdfO6YirhsbtztFos2QfXgRgpXJ6qqq2-3b'
+      },
+      params: {},
+      validateStatus: [Function (anonymous)],
+      retry: true,
+      retryConfig: {
+        currentRetryAttempt: 0,
+        retry: 3,
+        httpMethodsToRetry: [ 'GET', 'HEAD', 'PUT', 'OPTIONS', 'DELETE' ],
+        noResponseRetries: 2,
+        statusCodesToRetry: [ [ 100, 199 ], [ 429, 429 ], [ 500, 599 ] ]
+      }
+    },
+    data: <ref *1> Gunzip {
+      _writeState: Uint32Array(2) [ 0, 0 ],
+      _readableState: ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: BufferList { head: null, tail: null, length: 0 },
+        length: 0,
+        pipes: [],
+        flowing: null,
+        ended: false,
+        endEmitted: false,
+        reading: false,
+        constructed: true,
+        sync: false,
+        needReadable: false,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        errorEmitted: false,
+        emitClose: true,
+        autoDestroy: true,
+        destroyed: false,
+        errored: null,
+        closed: false,
+        closeEmitted: false,
+        defaultEncoding: 'utf8',
+        awaitDrainWriters: null,
+        multiAwaitDrain: false,
+        readingMore: false,
+        dataEmitted: false,
+        decoder: null,
+        encoding: null,
+        [Symbol(kPaused)]: null
+      },
+      _events: [Object: null prototype] {
+        prefinish: [Function: prefinish],
+        unpipe: [Function: onunpipe],
+        error: [ [Function: onerror], [Function (anonymous)] ],
+        close: [Function: bound onceWrapper] { listener: [Function: onclose] },
+        finish: [Function: bound onceWrapper] { listener: [Function: onfinish] }
+      },
+      _eventsCount: 5,
+      _maxListeners: undefined,
+      _writableState: WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        finalCalled: false,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        destroyed: false,
+        decodeStrings: true,
+        defaultEncoding: 'utf8',
+        length: 163,
+        writing: true,
+        corked: 0,
+        sync: false,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: [Function: nop],
+        writelen: 1,
+        afterWriteTickInfo: null,
+        buffered: [
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          }
+        ],
+        bufferedIndex: 0,
+        allBuffers: true,
+        allNoop: true,
+        pendingcb: 16,
+        constructed: true,
+        prefinished: false,
+        errorEmitted: false,
+        emitClose: true,
+        autoDestroy: true,
+        errored: null,
+        closed: false,
+        closeEmitted: false,
+        [Symbol(kOnFinished)]: []
+      },
+      allowHalfOpen: true,
+      bytesWritten: 0,
+      _handle: Zlib {
+        onerror: [Function: zlibOnError],
+        buffer: Buffer(1) [Uint8Array] [ 31 ],
+        cb: [Function (anonymous)],
+        availOutBefore: 16384,
+        availInBefore: 1,
+        inOff: 0,
+        flushFlag: 2,
+        [Symbol(owner_symbol)]: [Circular *1]
+      },
+      _outBuffer: Buffer(16384) [Uint8Array] [
+        123,  10,  32,  32,  34, 107, 105, 110, 100, 34,  58,  32,
+         34, 100, 114, 105, 118, 101,  35, 115, 116, 97, 114, 116,
+         80,  97, 103, 101,  84, 111, 107, 101, 110, 34,  44,  10,
+         32,  32,  34, 115, 116,  97, 114, 116,  80, 97, 103, 101,
+         84, 111, 107, 101, 110,  34,  58,  32,  34, 49,  50,  53,
+         34,  10, 125,  10, 116,  97, 114, 116,  80, 97,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,  0,   0,   0,
+         24, 101,  29, 248,
+        ... 16284 more items
+      ],
+      _outOffset: 0,
+      _chunkSize: 16384,
+      _defaultFlushFlag: 2,
+      _finishFlushFlag: 2,
+      _defaultFullFlushFlag: 3,
+      _info: undefined,
+      _maxOutputLength: 4294967296,
+      _level: -1,
+      _strategy: 0,
+      [Symbol(kCapture)]: false,
+      [Symbol(kCallback)]: null,
+      [Symbol(kError)]: null
+    },
+    headers: {
+      'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000',
+      'cache-control': 'private, max-age=0',
+      connection: 'close',
+      'content-encoding': 'gzip',
+      'content-type': 'application/json; charset=UTF-8',
+      date: 'Wed, 14 Jun 2023 00:41:40 GMT',
+      expires: 'Wed, 14 Jun 2023 00:41:40 GMT',
+      server: 'ESF',
+      'transfer-encoding': 'chunked',
+      vary: 'Origin, X-Origin',
+      'x-content-type-options': 'nosniff',
+      'x-frame-options': 'SAMEORIGIN',
+      'x-xss-protection': '0'
+    },
+    status: 404,
+    statusText: 'Not Found',
+    request: { responseURL: 'https://www.googleapis.com/drive/v3/files/media' }
+  },
+  config: {
+    url: 'https://www.googleapis.com/drive/v3/files/media',
+    method: 'GET',
+    responseType: 'stream',
+    userAgentDirectives: [
+      {
+        product: 'google-api-nodejs-client',
+        version: '6.0.4',
+        comment: 'gzip'
+      }
+    ],
+    paramsSerializer: [Function (anonymous)],
+    headers: {
+      'x-goog-api-client': 'gdcl/6.0.4 gl-node/18.14.2 auth/8.8.0',
+      'Accept-Encoding': 'gzip',
+      'User-Agent': 'google-api-nodejs-client/6.0.4 (gzip)',
+      Authorization: 'Bearer ya29.c.b0Aaekm1JeKhU8m55hByG_YAZyTt633tkXbV6nyyiEX17Gu5Vzf19uvl-rXf-wAx4FhtrH7BXxhpPjlpufK0Vtb92xKSNgtk6gmvvE21rOuMUo55ylZfQKmxUrx3xpmb6y6I_oEMO53ZIu68XkuUwnDK-MZJ4nPaOW0P3H0M4HS5i9iVQ0O5VKQKqApWYsIDgrI3j0mD_qPNmHa2XTw_-Mg0pLbMa0CA0UePwUG4EFeVNrm33lcqsTsfh4__IDFL-nSIYj-r24qWCf6AB8qi21KVENkIf5o7MfKe8ZMqPFD6cFGfbSGiD4pcu_8je9j94LEbzxUfYtL337PoY_hFxqam2x-Y2f340mM231crkzpp803S_m86f3WxwcSckmgawtS08MVBahsgdtsnw7Ue5paxldv72UnJvym2W2YdWY57Iw77_InS99-S438tgSvUvcojyao0_Zk0r4X7d0BhFSxRg32oVrXVnVqJmhz3I4usy94f2B2MoIy6M3esio-dZiOrwQzqOlz7xn1ok0gVmdYe2It_d6dug8nqcV0V2WrYisJ5fMMi4FOuwpSWuo_dVst_fnVSQU9j0ikk9xx1tZv7Va77ejvJRlyl8c1M8O3YX0v_hwF41Uzmj9e16egS1Jme2FzISWOU5fs7iaobdwzRsikjc-u_fwQq7XVMgxglW3yne6bgrB0J5Xd__2W8aUcsarmgbc3Q1bY2mmzrndO3dFJ-0e2oWcgafI0cVOdhUvpOonjcsblfJ7W7BmSXVtwxuqbl-S-ynyb7mb___u-ZisRxoteBiYy-Xjbd3vlaIpcRs6444boJdy7S09kIIqfauM1-OQx8wflmeoRZB9RM-zVf8Fm-Iqulfg_k4uRoRx3wMkvMhr7jaY3b2s17huFmo9OyviFxa_lRUOBJhtIx95vx33oFrIWliFU63Uw9rB7zBXVbu6VvvylWvYgV91QYFhmoXrx71dYbF_oakdkdfO6YirhsbtztFos2QfXgRgpXJ6qqq2-3b'
+    },
+    params: {},
+    validateStatus: [Function (anonymous)],
+    retry: true,
+    retryConfig: {
+      currentRetryAttempt: 0,
+      retry: 3,
+      httpMethodsToRetry: [ 'GET', 'HEAD', 'PUT', 'OPTIONS', 'DELETE' ],
+      noResponseRetries: 2,
+      statusCodesToRetry: [ [ 100, 199 ], [ 429, 429 ], [ 500, 599 ] ]
+    }
+  },
+  code: '404'
+}
+
+
+Node.js v18.14.2
+PS C:\Users\susan\Downloads\strac-app\app\server> node .\server.js
+Server running on port 8000
+https://quick-ghosts-invent.loca.lt
+Push notification channel created successfully: {
+  kind: 'api#channel',
+  id: 'ea46a095-ee4f-49c7-b103-1a02d44399e0',
+  resourceId: '00r8-0vMySaVdF3cFqFujtBjsRA',
+  resourceUri: 'https://www.googleapis.com/drive/v3/changes?alt=json&pageToken=125',
+  expiration: '1686706921000'
+}
+sync msg
+getting files
+starting download
+C:\Users\susan\Downloads\strac-app\node_modules\gaxios\build\src\gaxios.js:130
+                throw new common_1.GaxiosError(`Request failed with status code ${translatedResponse.status}`, opts, translatedResponse);
+                      ^
+
+
+GaxiosError: [object Object]
+    at Gaxios._request (C:\Users\susan\Downloads\strac-app\node_modules\gaxios\build\src\gaxios.js:130:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async JWT.requestAsync (C:\Users\susan\Downloads\strac-app\node_modules\google-auth-library\build\src\auth\oauth2client.js:382:18) {
+  response: {
+    config: {
+      url: 'https://www.googleapis.com/drive/v3/files/media',
+      method: 'GET',
+      responseType: 'stream',
+      userAgentDirectives: [
+        {
+          product: 'google-api-nodejs-client',
+          version: '6.0.4',
+          comment: 'gzip'
+        }
+      ],
+      paramsSerializer: [Function (anonymous)],
+      headers: {
+        'x-goog-api-client': 'gdcl/6.0.4 gl-node/18.14.2 auth/8.8.0',
+        'Accept-Encoding': 'gzip',
+        'User-Agent': 'google-api-nodejs-client/6.0.4 (gzip)',
+        Authorization: 'Bearer ya29.c.b0Aaekm1L2SFV_VLcmvC8HJPil_GHNYOTbxANdt1aOGCXGRA4yOkq6eRTmNKFSYgGivt1IA3EAhQIzTuHSb97iOjQrgcnAI0wupcA0yk8rKwCBEVQbLlx9vrpfi6-yWsT0tWwKA39eIpNJwrVSMF0tY2mB403Y5sh_PedbQYPSUiQyYAOxvYCWJpvDL1kI6IfZow_dTuO6hJ9UMV4CAqn5z3xdeKTWsyhpx06f4a0h86hPplK3hna0_ggj3qL-gpOBCgte-d7c_6Vad2aBsQrPAzUW0zKcKaHBJnSg8mir7dyXCmiDEmfuGY67wbxthAy4o4tUTjlK5QG339AJwhbIZvg5dwl7_fxzIFmQal2uletS7OvOop3xdaMp5vVht-BqpxVcfqI_wmyYSXRBpj61ZIpx9Q0vafZeuqyahq6te72IyBoxInQ7s1oBJOrixnrFJ0aWthiyrh0p10iY6edJRes3UBk9iIsZbWoMBxbtM9Vp4-r_d-9b1Yx452sfqIxM5i9i-mm9tjycJJ9pQy5gXRl4zJu76-IxfcUfc4MMqd74jxJn4jw3aJRmxxVZ1JWqX7qj5zec_Ok7wOS5_U4Uh5kmJaJ9olhFjc32yhUfnQxOy-QisndvhxxkZfrJO_gzjQIJokJmZxBbf5po7jgoJS-krd2FeObgu_I_BnxmVFU4enRq2pRWRneUwoVuBifMOV1ksuZk4qiynivaFQWU-z2rRzi27OmFWuUO5mWcg1lj_yvJU-ceFuxbr2ueWBMS6SYqRdXc_lSRVVudulndXMyybbyuQ2rQRciZucYJukXSqM_V4g2bhZOaYyZsQ1rtFRO2eaRh5l8o1_QvusSMe1ZlF34moQ87wOyYxyq8JgnnMIq8zUMzrZFs-jRt9bIwBkm0pzQl_bXyBBtoIio0n0xJyUXWwzOZnuek1M3aoWhZ_fgXrQchVrlYcwW3B0yR0UwxvRtoWSBrt2RooW83mV3Fds0-FvsnbWof2Rhqodu9Wx1Vim_IOm-'
+      },
+      params: {},
+      validateStatus: [Function (anonymous)],
+      retry: true,
+      retryConfig: {
+        currentRetryAttempt: 0,
+        retry: 3,
+        httpMethodsToRetry: [ 'GET', 'HEAD', 'PUT', 'OPTIONS', 'DELETE' ],
+        noResponseRetries: 2,
+        statusCodesToRetry: [ [ 100, 199 ], [ 429, 429 ], [ 500, 599 ] ]
+      }
+    },
+    data: <ref *1> Gunzip {
+      _writeState: Uint32Array(2) [ 0, 0 ],
+      _readableState: ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: BufferList { head: null, tail: null, length: 0 },
+        length: 0,
+        pipes: [],
+        flowing: null,
+        ended: false,
+        endEmitted: false,
+        reading: false,
+        constructed: true,
+        sync: false,
+        needReadable: false,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        errorEmitted: false,
+        emitClose: true,
+        autoDestroy: true,
+        destroyed: false,
+        errored: null,
+        closed: false,
+        closeEmitted: false,
+        defaultEncoding: 'utf8',
+        awaitDrainWriters: null,
+        multiAwaitDrain: false,
+        readingMore: false,
+        dataEmitted: false,
+        decoder: null,
+        encoding: null,
+        [Symbol(kPaused)]: null
+      },
+      _events: [Object: null prototype] {
+        prefinish: [Function: prefinish],
+        unpipe: [Function: onunpipe],
+        error: [ [Function: onerror], [Function (anonymous)] ],
+        close: [Function: bound onceWrapper] { listener: [Function: onclose] },
+        finish: [Function: bound onceWrapper] { listener: [Function: onfinish] }
+      },
+      _eventsCount: 5,
+      _maxListeners: undefined,
+      _writableState: WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        finalCalled: false,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        destroyed: false,
+        decodeStrings: true,
+        defaultEncoding: 'utf8',
+        length: 163,
+        writing: true,
+        corked: 0,
+        sync: false,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: [Function: nop],
+        writelen: 1,
+        afterWriteTickInfo: null,
+        buffered: [
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          },
+          {
+            chunk: [Buffer [Uint8Array]],
+            encoding: 'buffer',
+            callback: [Function: nop]
+          }
+        ],
+        bufferedIndex: 0,
+        allBuffers: true,
+        allNoop: true,
+        pendingcb: 12,
+        constructed: true,
+        prefinished: false,
+        errorEmitted: false,
+        emitClose: true,
+        autoDestroy: true,
+        errored: null,
+        closed: false,
+        closeEmitted: false,
+        [Symbol(kOnFinished)]: []
+      },
+      allowHalfOpen: true,
+      bytesWritten: 0,
+      _handle: Zlib {
+        onerror: [Function: zlibOnError],
+        buffer: Buffer(1) [Uint8Array] [ 31 ],
+        cb: [Function (anonymous)],
+        availOutBefore: 16384,
+        availInBefore: 1,
+        inOff: 0,
+        flushFlag: 2,
+        [Symbol(owner_symbol)]: [Circular *1]
+      },
+      _outBuffer: Buffer(16384) [Uint8Array] [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0,
+        ... 16284 more items
+      ],
+      _outOffset: 0,
+      _chunkSize: 16384,
+      _defaultFlushFlag: 2,
+      _finishFlushFlag: 2,
+      _defaultFullFlushFlag: 3,
+      _info: undefined,
+      _maxOutputLength: 4294967296,
+      _level: -1,
+      _strategy: 0,
+      [Symbol(kCapture)]: false,
+      [Symbol(kCallback)]: null,
+      [Symbol(kError)]: null
+    },
+    headers: {
+      'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000',
+      'cache-control': 'private, max-age=0',
+      connection: 'close',
+      'content-encoding': 'gzip',
+      'content-type': 'application/json; charset=UTF-8',
+      date: 'Wed, 14 Jun 2023 00:42:12 GMT',
+      expires: 'Wed, 14 Jun 2023 00:42:12 GMT',
+      server: 'ESF',
+      'transfer-encoding': 'chunked',
+      vary: 'Origin, X-Origin',
+      'x-content-type-options': 'nosniff',
+      'x-frame-options': 'SAMEORIGIN',
+      'x-xss-protection': '0'
+    },
+    status: 404,
+    statusText: 'Not Found',
+    request: { responseURL: 'https://www.googleapis.com/drive/v3/files/media' }
+  },
+  config: {
+    url: 'https://www.googleapis.com/drive/v3/files/media',
+    method: 'GET',
+    responseType: 'stream',
+    userAgentDirectives: [
+      {
+        product: 'google-api-nodejs-client',
+        version: '6.0.4',
+        comment: 'gzip'
+      }
+    ],
+    paramsSerializer: [Function (anonymous)],
+    headers: {
+      'x-goog-api-client': 'gdcl/6.0.4 gl-node/18.14.2 auth/8.8.0',
+      'Accept-Encoding': 'gzip',
+      'User-Agent': 'google-api-nodejs-client/6.0.4 (gzip)',
+      Authorization: 'Bearer ya29.c.b0Aaekm1L2SFV_VLcmvC8HJPil_GHNYOTbxANdt1aOGCXGRA4yOkq6eRTmNKFSYgGivt1IA3EAhQIzTuHSb97iOjQrgcnAI0wupcA0yk8rKwCBEVQbLlx9vrpfi6-yWsT0tWwKA39eIpNJwrVSMF0tY2mB403Y5sh_PedbQYPSUiQyYAOxvYCWJpvDL1kI6IfZow_dTuO6hJ9UMV4CAqn5z3xdeKTWsyhpx06f4a0h86hPplK3hna0_ggj3qL-gpOBCgte-d7c_6Vad2aBsQrPAzUW0zKcKaHBJnSg8mir7dyXCmiDEmfuGY67wbxthAy4o4tUTjlK5QG339AJwhbIZvg5dwl7_fxzIFmQal2uletS7OvOop3xdaMp5vVht-BqpxVcfqI_wmyYSXRBpj61ZIpx9Q0vafZeuqyahq6te72IyBoxInQ7s1oBJOrixnrFJ0aWthiyrh0p10iY6edJRes3UBk9iIsZbWoMBxbtM9Vp4-r_d-9b1Yx452sfqIxM5i9i-mm9tjycJJ9pQy5gXRl4zJu76-IxfcUfc4MMqd74jxJn4jw3aJRmxxVZ1JWqX7qj5zec_Ok7wOS5_U4Uh5kmJaJ9olhFjc32yhUfnQxOy-QisndvhxxkZfrJO_gzjQIJokJmZxBbf5po7jgoJS-krd2FeObgu_I_BnxmVFU4enRq2pRWRneUwoVuBifMOV1ksuZk4qiynivaFQWU-z2rRzi27OmFWuUO5mWcg1lj_yvJU-ceFuxbr2ueWBMS6SYqRdXc_lSRVVudulndXMyybbyuQ2rQRciZucYJukXSqM_V4g2bhZOaYyZsQ1rtFRO2eaRh5l8o1_QvusSMe1ZlF34moQ87wOyYxyq8JgnnMIq8zUMzrZFs-jRt9bIwBkm0pzQl_bXyBBtoIio0n0xJyUXWwzOZnuek1M3aoWhZ_fgXrQchVrlYcwW3B0yR0UwxvRtoWSBrt2RooW83mV3Fds0-FvsnbWof2Rhqodu9Wx1Vim_IOm-'
+    },
+    params: {},
+    validateStatus: [Function (anonymous)],
+    retry: true,
+    retryConfig: {
+      currentRetryAttempt: 0,
+      retry: 3,
+      httpMethodsToRetry: [ 'GET', 'HEAD', 'PUT', 'OPTIONS', 'DELETE' ],
+      noResponseRetries: 2,
+      statusCodesToRetry: [ [ 100, 199 ], [ 429, 429 ], [ 500, 599 ] ]
+    }
+  },
+  code: '404'
+}

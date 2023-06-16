@@ -1,4 +1,5 @@
 const { google } = require("googleapis");
+const { GoogleAuth } = require("google-auth-library");
 const express = require("express");
 const fs = require("fs");
 
@@ -149,37 +150,28 @@ app.post("/download", async (req, res) => {
   const fileId = req.body.id;
   const name = req.body.name;
   const dest = fs.createWriteStream(`./${name}`);
-  return drive.files
-    .get({ fileId, fileId: "media" }, { responseType: "stream" })
-    .then((res) => {
-      return new Promise((resolve, reject) => {
-        let progress = 0;
-
-        res.data
-          .on("end", () => {
-            console.log("Done downloading file.");
-          })
-          .on("error", (err) => {
-            console.error("Error downloading file.");
-            reject(err);
-          })
-          .on("data", (d) => {
-            progress += d.length;
-            if (process.stdout.isTTY) {
-              process.stdout.clearLine();
-              process.stdout.cursorTo(0);
-              process.stdout.write(`Downloaded ${progress} bytes`);
-            }
-          })
-          .pipe(dest);
-      });
-    });
+  const result = await drive.files.export(
+    { fileId, mimeType: "text/plain" },
+    { responseType: "stream" }
+  );
+  await new Promise((resolve, reject) => {
+    result.data
+      .on("error", reject)
+      .pipe(dest)
+      .on("error", reject)
+      .on("finish", resolve);
+  });
 });
 
 app.get("/files", async (req, res) => {
   console.log("getting files");
   files = await getFiles();
   res.send(JSON.stringify(files));
+});
+
+app.get("/", (req, res) => {
+  console.log("hello");
+  res.send("Hello World!");
 });
 
 const server = app.listen(port, () => {
