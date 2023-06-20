@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 
 let url = "http://localhost:8000";
 
-const File = ({ backendData }) => {
+const File = ({ backendData, close, open, files }) => {
   return (
     <div className="file">
       <div>
@@ -22,12 +22,15 @@ const File = ({ backendData }) => {
         <div className="download">
           <button
             onClick={() => {
+              close();
               axios
                 .post(`${url}/download`, {
                   id: backendData[0],
                   name: backendData[1][0],
                 })
                 .then((res) => console.log(res));
+              files();
+              open();
             }}
           >
             Download
@@ -40,15 +43,22 @@ const File = ({ backendData }) => {
 
 function App() {
   const [files, setFiles] = useState({});
+  const [eventSource, setEventSource] = useState(null);
 
-  useEffect(() => {
+  const getFiles = () => {
+    console.log("getting files");
     axios.get(`${url}/files`).then((data) => {
       setFiles(data.data);
       console.log("FILES", data.data);
     });
-  }, [files]);
+  };
 
   useEffect(() => {
+    getFiles();
+  }, []);
+
+  const openEventSource = () => {
+    console.log("opening eventsource");
     const events = new EventSource(`${url}/events`);
     events.onmessage = (event) => {
       const parsedData = JSON.parse(event.data);
@@ -61,12 +71,33 @@ function App() {
         setFiles({ ...files, [key]: [parsedData[1], parsedData[2]] });
       }
     };
-  }, [files]);
+
+    setEventSource(events);
+  };
+
+  useEffect(() => {
+    openEventSource();
+  }, []);
+
+  const closeEventSource = () => {
+    console.log("closing eventsource");
+    if (eventSource) {
+      eventSource.close();
+      setEventSource(null);
+    }
+  };
 
   return (
     <div className="App">
       {Object.entries(files).map(([id, perm]) => {
-        return <File backendData={[id, perm]} />;
+        return (
+          <File
+            backendData={[id, perm]}
+            close={closeEventSource}
+            open={openEventSource}
+            files={getFiles}
+          />
+        );
       })}
     </div>
   );
